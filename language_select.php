@@ -1,13 +1,13 @@
 <?php
 /**
- * ============================================================
+ * 
  * LANGUAGE SELECTION PAGE (Prototype - Future Feature)
- * ============================================================
+ * 
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
  * Module: 6COM2018
- * ============================================================
+ * 
  * 
  * PURPOSE:
  * This page demonstrates a potential future enhancement where
@@ -19,7 +19,7 @@
  * - Each language would link to its own question bank
  * - User preferences stored in the database
  * - Progress tracked independently per language
- * ============================================================
+ *
  */
 
 session_start();
@@ -114,7 +114,7 @@ $languages = [
 
 /**
  * HANDLE LANGUAGE SELECTION
- * -------------------------
+ * 
  * When a user clicks an active language card, the selected
  * language code is stored in the session. In a full implementation,
  * this would also be persisted to the database via an UPDATE query
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
     <style>
         /**
          * LANGUAGE SELECTION STYLES
-         * -------------------------
+         * 
          * These styles extend the existing QuizNinja theme to create
          * a visually distinct language selection experience. The card
          * layout uses CSS Grid for responsive arrangement across
@@ -461,9 +461,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
 <body>
     <div class="page-wrapper">
 
-        <!-- ============================================================
+        <!-- 
              NAVIGATION BAR (consistent with existing pages)
-             ============================================================ -->
+              -->
         <nav class="navbar">
             <div class="container">
                 <a href="dashboard.php" class="navbar-brand">QuizNinja</a>
@@ -482,9 +482,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
             </div>
         </nav>
 
-        <!-- ============================================================
+        <!-- 
              MAIN CONTENT AREA
-             ============================================================ -->
+             -->
         <main class="main-content">
             <div class="container">
 
@@ -500,9 +500,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
                     This page demonstrates planned multi-language support. Currently, Spanish is fully implemented with 96 questions across 4 categories.
                 </div>
 
-                <!-- ========================================================
+                <!-- 
                      DETAILED PROTOTYPE EXPLANATION
-                     ========================================================
+                     
                      This section provides clear context for evaluators that
                      this is an intentional prototype, not unfinished work.
                 -->
@@ -597,9 +597,9 @@ ALTER TABLE users
                     </div>
                 </div>
 
-                <!-- ========================================================
+                <!-- 
                      LANGUAGE CARD GRID
-                     ========================================================
+                     
                      Each card represents a language option. Active languages
                      submit a form to select that language; coming soon cards
                      are visually disabled and not clickable.
@@ -640,9 +640,9 @@ ALTER TABLE users
                     <?php endforeach; ?>
                 </div>
 
-                <!-- ========================================================
+                <!-- 
                      PLANNED FEATURES SECTION
-                     ========================================================
+                     
                      Showcases future capabilities that would accompany the
                      multi-language expansion of QuizNinja.
                 -->
@@ -683,9 +683,9 @@ ALTER TABLE users
             </div>
         </main>
 
-        <!-- ============================================================
+        <!-- 
              FOOTER (consistent with existing pages)
-             ============================================================ -->
+             -->
         <footer class="footer">
             <div class="container">
                 <p>&copy; 2025 QuizNinja - Adaptive Language Learning | 6COM2018 Final Year Project</p>

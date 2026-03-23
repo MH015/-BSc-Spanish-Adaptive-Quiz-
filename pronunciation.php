@@ -1,13 +1,13 @@
 <?php
 /**
- * ============================================================
+ * 
  * AUDIO PRONUNCIATION PAGE (Prototype - Future Feature)
- * ============================================================
+ * 
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
  * Module: 6COM2018
- * ============================================================
+ * 
  * 
  * PURPOSE:
  * This page demonstrates a potential audio pronunciation feature
@@ -24,7 +24,7 @@
  * NOTE: This is a prototype demonstration. In a full implementation,
  * pre-recorded native speaker audio files would replace the
  * browser's built-in text-to-speech for higher quality pronunciation.
- * ============================================================
+ * 
  */
 
 session_start();
@@ -606,9 +606,9 @@ $pronunciation_items = [
 <body>
     <div class="page-wrapper">
 
-        <!-- ============================================================
+        <!-- 
              NAVIGATION BAR
-             ============================================================ -->
+              -->
         <nav class="navbar">
             <div class="container">
                 <a href="dashboard.php" class="navbar-brand">QuizNinja</a>
@@ -627,9 +627,9 @@ $pronunciation_items = [
             </div>
         </nav>
 
-        <!-- ============================================================
+        <!-- 
              MAIN CONTENT
-             ============================================================ -->
+             -->
         <main class="main-content">
             <div class="container">
 
@@ -645,9 +645,9 @@ $pronunciation_items = [
                     This feature uses the browser's Web Speech API for demonstration. A production version would use pre-recorded native speaker audio.
                 </div>
 
-                <!-- ========================================================
+                <!-- 
                      DETAILED PROTOTYPE EXPLANATION
-                     ======================================================== -->
+                      -->
                 <div class="prototype-detail-box">
                     <h3>🔬 About This Prototype</h3>
                     <p>
@@ -762,9 +762,9 @@ $pronunciation_items = [
                     </div>
                 </div>
 
-                <!-- ========================================================
+                <!-- 
                      CATEGORY FILTER BAR
-                     ========================================================
+                     
                      Allows users to filter pronunciation cards by category.
                      Uses JavaScript to show/hide cards based on selection.
                 -->
@@ -848,9 +848,9 @@ $pronunciation_items = [
                 </div>
                 <?php endforeach; ?>
 
-                <!-- ========================================================
+                <!-- 
                      HOW IT WORKS SECTION
-                     ======================================================== -->
+                      -->
                 <div class="how-it-works">
                     <h3>How Pronunciation Practice Works</h3>
                     <div class="steps-grid">
@@ -888,9 +888,9 @@ $pronunciation_items = [
         </footer>
     </div>
 
-    <!-- ================================================================
+    <!-- 
          JAVASCRIPT: Speech Synthesis and Recognition
-         ================================================================
+         
          Uses the Web Speech API, which is built into modern browsers.
          
          SpeechSynthesis: Converts text to spoken audio output
@@ -905,7 +905,7 @@ $pronunciation_items = [
          Replace browser TTS with pre-recorded .mp3/.ogg files from
          native speakers stored in an 'audio/' directory, referenced
          via an 'audio_file' column in the questions table.
-    ================================================================ -->
+     -->
     <script>
         /**
          * speakText()
@@ -966,7 +966,7 @@ $pronunciation_items = [
 
         /**
          * startRecognition()
-         * ------------------
+         * 
          * Uses the Web Speech API's SpeechRecognition interface to
          * capture the user's spoken Spanish and compare it against
          * the expected phrase.
@@ -1008,7 +1008,7 @@ $pronunciation_items = [
                 
                 /**
                  * COMPARISON LOGIC
-                 * ----------------
+                 * 
                  * Normalises both strings by converting to lowercase,
                  * removing punctuation (including ¿ and ¡), and trimming
                  * whitespace before comparing.
@@ -1059,7 +1059,7 @@ $pronunciation_items = [
 
         /**
          * filterCards()
-         * -------------
+         * 
          * Shows/hides pronunciation cards based on the selected
          * category filter. Uses CSS display property for simplicity.
          *
@@ -1084,7 +1084,7 @@ $pronunciation_items = [
 
         /**
          * VOICE LOADING
-         * -------------
+         * 
          * Browser voices may load asynchronously. This listener
          * ensures Spanish voices are available when the page loads.
          * Without this, the first speech attempt might use a

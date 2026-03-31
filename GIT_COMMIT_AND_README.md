@@ -1,6 +1,6 @@
-# ══════════════════════════════════════════════════════════════
+#
 #  GIT COMMANDS - Run these in your project terminal
-# ══════════════════════════════════════════════════════════════
+# 
 
 # Stage all changed and new files
 git add language_select.php pronunciation.php dashboard.php quiz.php results.php progress.php
@@ -49,9 +49,9 @@ TECHNOLOGIES USED:
 git push origin main
 
 
-# ══════════════════════════════════════════════════════════════
+# 
 #  README.md - Add this section to your existing README
-# ══════════════════════════════════════════════════════════════
+#
 # Paste this below your existing features list in README.md:
 
 ## Prototype Features (Future Development)

@@ -1,30 +1,27 @@
 <?php
 /**
- * 
+
  * AUDIO PRONUNCIATION PAGE (Prototype - Future Feature)
- * 
+
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
  * Module: 6COM2018
- * 
- * 
+
  * PURPOSE:
  * This page demonstrates a potential audio pronunciation feature
  * that would enhance the quiz experience by allowing users to:
  *   1. Listen to native pronunciation of Spanish words/phrases
  *   2. Practise speaking with speech recognition feedback
  *   3. Compare their pronunciation with the correct version
- * 
  * TECHNOLOGY:
  * - Web Speech API (SpeechSynthesis) for text-to-speech playback
  * - Web Speech API (SpeechRecognition) for user speech input
  * - Visual waveform animation for audio feedback
- * 
  * NOTE: This is a prototype demonstration. In a full implementation,
  * pre-recorded native speaker audio files would replace the
  * browser's built-in text-to-speech for higher quality pronunciation.
- * 
+
  */
 
 session_start();
@@ -41,7 +38,6 @@ $user = get_logged_in_user();
  * In the full implementation, this data would come from the
  * existing 'questions' table with an additional 'audio_file'
  * column, or from a dedicated 'pronunciation' table.
- * 
  * Each entry contains:
  * - spanish:    The word/phrase in Spanish
  * - english:    English translation for context
@@ -606,9 +602,6 @@ $pronunciation_items = [
 <body>
     <div class="page-wrapper">
 
-        <!-- 
-             NAVIGATION BAR
-              -->
         <nav class="navbar">
             <div class="container">
                 <a href="dashboard.php" class="navbar-brand">QuizNinja</a>
@@ -627,9 +620,6 @@ $pronunciation_items = [
             </div>
         </nav>
 
-        <!-- 
-             MAIN CONTENT
-             -->
         <main class="main-content">
             <div class="container">
 
@@ -645,9 +635,6 @@ $pronunciation_items = [
                     This feature uses the browser's Web Speech API for demonstration. A production version would use pre-recorded native speaker audio.
                 </div>
 
-                <!-- 
-                     DETAILED PROTOTYPE EXPLANATION
-                      -->
                 <div class="prototype-detail-box">
                     <h3>About This Prototype</h3>
                     <p>
@@ -762,12 +749,6 @@ $pronunciation_items = [
                     </div>
                 </div>
 
-                <!-- 
-                     CATEGORY FILTER BAR
-                     
-                     Allows users to filter pronunciation cards by category.
-                     Uses JavaScript to show/hide cards based on selection.
-                -->
                 <div class="filter-bar">
                     <button class="filter-btn active" onclick="filterCards('all')">All</button>
                     <button class="filter-btn" onclick="filterCards('Greetings')">Greetings</button>
@@ -776,15 +757,6 @@ $pronunciation_items = [
                     <button class="filter-btn" onclick="filterCards('Common Phrases')">Common Phrases</button>
                 </div>
 
-                <!-- ========================================================
-                     PRONUNCIATION CARDS
-                     ========================================================
-                     Each card displays a Spanish phrase with:
-                     - Listen button (text-to-speech at normal speed)
-                     - Slow button (text-to-speech at 0.6x speed)
-                     - Microphone button (speech recognition input)
-                     - Phonetic guide and pronunciation tips
-                -->
                 <?php foreach ($pronunciation_items as $index => $item): ?>
                 <div class="pronunciation-card" id="card-<?php echo $index; ?>" data-category="<?php echo htmlspecialchars($item['category']); ?>">
                     <div class="card-top">
@@ -848,9 +820,6 @@ $pronunciation_items = [
                 </div>
                 <?php endforeach; ?>
 
-                <!-- 
-                     HOW IT WORKS SECTION
-                      -->
                 <div class="how-it-works">
                     <h3>How Pronunciation Practice Works</h3>
                     <div class="steps-grid">
@@ -888,24 +857,6 @@ $pronunciation_items = [
         </footer>
     </div>
 
-    <!-- 
-         JAVASCRIPT: Speech Synthesis and Recognition
-         
-         Uses the Web Speech API, which is built into modern browsers.
-         
-         SpeechSynthesis: Converts text to spoken audio output
-         SpeechRecognition: Captures and transcribes user's spoken input
-         
-         BROWSER SUPPORT:
-         - Chrome, Edge: Full support for both APIs
-         - Firefox: Synthesis only (recognition not supported)
-         - Safari: Partial support
-         
-         FUTURE IMPROVEMENT:
-         Replace browser TTS with pre-recorded .mp3/.ogg files from
-         native speakers stored in an 'audio/' directory, referenced
-         via an 'audio_file' column in the questions table.
-     -->
     <script>
         /**
          * speakText()
@@ -966,7 +917,7 @@ $pronunciation_items = [
 
         /**
          * startRecognition()
-         * 
+         * ------------------
          * Uses the Web Speech API's SpeechRecognition interface to
          * capture the user's spoken Spanish and compare it against
          * the expected phrase.
@@ -1008,7 +959,7 @@ $pronunciation_items = [
                 
                 /**
                  * COMPARISON LOGIC
-                 * 
+                 * ----------------
                  * Normalises both strings by converting to lowercase,
                  * removing punctuation (including ¿ and ¡), and trimming
                  * whitespace before comparing.
@@ -1059,7 +1010,7 @@ $pronunciation_items = [
 
         /**
          * filterCards()
-         * 
+         * -------------
          * Shows/hides pronunciation cards based on the selected
          * category filter. Uses CSS display property for simplicity.
          *
@@ -1084,7 +1035,7 @@ $pronunciation_items = [
 
         /**
          * VOICE LOADING
-         * 
+         * -------------
          * Browser voices may load asynchronously. This listener
          * ensures Spanish voices are available when the page loads.
          * Without this, the first speech attempt might use a

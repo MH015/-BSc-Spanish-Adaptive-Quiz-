@@ -1,25 +1,23 @@
 <?php
 /**
- * 
+
  * LANGUAGE SELECTION PAGE (Prototype - Future Feature)
- * 
+
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
  * Module: 6COM2018
- * 
- * 
+
  * PURPOSE:
  * This page demonstrates a potential future enhancement where
  * users could choose from multiple languages beyond Spanish.
  * Currently implemented as a visual prototype to showcase the
  * application's extensibility and planned feature roadmap.
- * 
  * FUTURE DEVELOPMENT:
  * - Each language would link to its own question bank
  * - User preferences stored in the database
  * - Progress tracked independently per language
- *
+
  */
 
 session_start();
@@ -50,7 +48,6 @@ $user = get_logged_in_user();
  * - status:      'active' = fully implemented, 'coming_soon' = prototype placeholder
  * - questions:   Number of questions available (0 for coming soon)
  * - description: Brief description of the course content
- * 
  * FUTURE: This array would be replaced by a database query
  * against a 'languages' table, allowing dynamic language additions
  * without code changes.
@@ -114,7 +111,7 @@ $languages = [
 
 /**
  * HANDLE LANGUAGE SELECTION
- * 
+ * -------------------------
  * When a user clicks an active language card, the selected
  * language code is stored in the session. In a full implementation,
  * this would also be persisted to the database via an UPDATE query
@@ -140,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
     <style>
         /**
          * LANGUAGE SELECTION STYLES
-         * 
+         * -------------------------
          * These styles extend the existing QuizNinja theme to create
          * a visually distinct language selection experience. The card
          * layout uses CSS Grid for responsive arrangement across
@@ -461,9 +458,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
 <body>
     <div class="page-wrapper">
 
-        <!-- 
-             NAVIGATION BAR (consistent with existing pages)
-              -->
         <nav class="navbar">
             <div class="container">
                 <a href="dashboard.php" class="navbar-brand">QuizNinja</a>
@@ -482,9 +476,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
             </div>
         </nav>
 
-        <!-- 
-             MAIN CONTENT AREA
-             -->
         <main class="main-content">
             <div class="container">
 
@@ -500,12 +491,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
                     This page demonstrates planned multi-language support. Currently, Spanish is fully implemented with 96 questions across 4 categories.
                 </div>
 
-                <!-- 
-                     DETAILED PROTOTYPE EXPLANATION
-                     
-                     This section provides clear context for evaluators that
-                     this is an intentional prototype, not unfinished work.
-                -->
                 <div class="prototype-detail-box">
                     <h3>About This Prototype</h3>
                     <p>
@@ -597,13 +582,6 @@ ALTER TABLE users
                     </div>
                 </div>
 
-                <!-- 
-                     LANGUAGE CARD GRID
-                     
-                     Each card represents a language option. Active languages
-                     submit a form to select that language; coming soon cards
-                     are visually disabled and not clickable.
-                -->
                 <div class="language-grid">
                     <?php foreach ($languages as $lang): ?>
                         <?php if ($lang['status'] === 'active'): ?>
@@ -640,38 +618,32 @@ ALTER TABLE users
                     <?php endforeach; ?>
                 </div>
 
-                <!-- 
-                     PLANNED FEATURES SECTION
-                     
-                     Showcases future capabilities that would accompany the
-                     multi-language expansion of QuizNinja.
-                -->
                 <div class="future-info">
                     <h3>Planned Language Learning Features</h3>
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-icon"><span class="feature-icon">🔊</span>#9835;</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">01</span>
                             <div class="feature-text">
                                 <h4>Audio Pronunciation</h4>
                                 <p>Hear native speaker audio for every question and answer to improve listening skills.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon"><span class="feature-icon">🎙️</span>#9834;</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">02</span>
                             <div class="feature-text">
                                 <h4>Speech Recognition</h4>
                                 <p>Practise speaking with real-time pronunciation feedback using the Web Speech API.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon"><span class="feature-icon">📊</span>#9632;</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">03</span>
                             <div class="feature-text">
                                 <h4>Cross-Language Progress</h4>
                                 <p>Track your progress across multiple languages with comparative analytics.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon"><span class="feature-icon">🏆</span>#9733;</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">04</span>
                             <div class="feature-text">
                                 <h4>Leaderboards</h4>
                                 <p>Compete with other learners per language with weekly and all-time rankings.</p>
@@ -683,9 +655,6 @@ ALTER TABLE users
             </div>
         </main>
 
-        <!-- 
-             FOOTER (consistent with existing pages)
-             -->
         <footer class="footer">
             <div class="container">
                 <p>&copy; 2025 QuizNinja - Adaptive Language Learning | 6COM2018 Final Year Project</p>

@@ -1,12 +1,12 @@
 <?php
 /**
- * 
+
  * DASHBOARD PAGE
- * 
+
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
- * 
+
  */
 
 require_once 'includes/auth.php';
@@ -154,9 +154,9 @@ unset($cat);
                 </div>
                 <?php endif; ?>
 
-                <!-- ============================================================
+                
                      FUTURE FEATURES SHOWCASE SECTION (Prototype)
-                     ============================================================ -->
+                     
                 <style>
                     .future-section { margin-top: 2.5rem; }
                     .future-section h2 { font-size: 1.3rem; color: var(--text-primary, #1a1a2e); margin-bottom: 0.35rem; }

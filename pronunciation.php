@@ -635,7 +635,7 @@ $pronunciation_items = [
 
                 <!-- Page Header -->
                 <div class="audio-header">
-                    <h1>🔊 Audio Pronunciation Practice</h1>
+                    <h1>Audio Pronunciation Practice</h1>
                     <p>Listen, repeat, and perfect your Spanish pronunciation</p>
                 </div>
 
@@ -649,7 +649,7 @@ $pronunciation_items = [
                      DETAILED PROTOTYPE EXPLANATION
                       -->
                 <div class="prototype-detail-box">
-                    <h3>🔬 About This Prototype</h3>
+                    <h3>About This Prototype</h3>
                     <p>
                         This page is a <strong>functional prototype</strong> demonstrating how audio-based pronunciation 
                         practice could be integrated into QuizNinja's adaptive learning system. It uses the browser's 
@@ -661,7 +661,7 @@ $pronunciation_items = [
 
                     <div class="proto-columns">
                         <div class="proto-col">
-                            <h4>✅ What This Prototype Demonstrates</h4>
+                            <h4>What This Prototype Demonstrates</h4>
                             <div class="proto-list">
                                 <div class="proto-list-item">
                                     <span class="proto-check">✓</span>
@@ -695,7 +695,7 @@ $pronunciation_items = [
                         </div>
 
                         <div class="proto-col">
-                            <h4>🔮 What a Production Version Would Require</h4>
+                            <h4>What a Production Version Would Require</h4>
                             <div class="proto-list">
                                 <div class="proto-list-item">
                                     <span class="proto-arrow">→</span>
@@ -730,7 +730,7 @@ $pronunciation_items = [
                     </div>
 
                     <div class="proto-tech">
-                        <h4>⚙️ Technologies Used in This Prototype</h4>
+                        <h4>Technologies Used in This Prototype</h4>
                         <div class="tech-badges">
                             <div class="tech-badge">
                                 <strong>SpeechSynthesis API</strong>
@@ -752,7 +752,7 @@ $pronunciation_items = [
                     </div>
 
                     <div class="proto-limitations">
-                        <h4>⚠️ Known Prototype Limitations</h4>
+                        <h4>Known Prototype Limitations</h4>
                         <p>
                             Browser text-to-speech quality varies by device and operating system — some voices sound more natural than others.
                             Speech recognition requires microphone permission and works best in Chrome or Edge; Firefox does not support the <code>SpeechRecognition</code> API.

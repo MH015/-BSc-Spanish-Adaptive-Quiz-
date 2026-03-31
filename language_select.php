@@ -507,7 +507,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
                      this is an intentional prototype, not unfinished work.
                 -->
                 <div class="prototype-detail-box">
-                    <h3>🔬 About This Prototype</h3>
+                    <h3>About This Prototype</h3>
                     <p>
                         This page is a <strong>functional prototype</strong> demonstrating how QuizNinja's architecture 
                         could scale to support multiple languages. It is intentionally included to showcase the 
@@ -518,7 +518,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
 
                     <div class="proto-columns">
                         <div class="proto-col">
-                            <h4>✅ What This Prototype Demonstrates</h4>
+                            <h4>What This Prototype Demonstrates</h4>
                             <div class="proto-list">
                                 <div class="proto-list-item">
                                     <span class="proto-check">✓</span>
@@ -544,7 +544,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
                         </div>
 
                         <div class="proto-col">
-                            <h4>🔮 What a Production Version Would Require</h4>
+                            <h4>What a Production Version Would Require</h4>
                             <div class="proto-list">
                                 <div class="proto-list-item">
                                     <span class="proto-arrow">→</span>
@@ -571,7 +571,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
                     </div>
 
                     <div class="proto-schema">
-                        <h4>📐 Proposed Database Schema Extension</h4>
+                        <h4>Proposed Database Schema Extension</h4>
                         <p class="proto-schema-desc">The following schema changes would be required to support multi-language functionality in a production release:</p>
                         <pre class="proto-code">
 -- New table: stores available languages
@@ -650,28 +650,28 @@ ALTER TABLE users
                     <h3>Planned Language Learning Features</h3>
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-icon">🔊</span>
+                            <span class="feature-icon"><span class="feature-icon">🔊</span>#9835;</span>
                             <div class="feature-text">
                                 <h4>Audio Pronunciation</h4>
                                 <p>Hear native speaker audio for every question and answer to improve listening skills.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon">🎙️</span>
+                            <span class="feature-icon"><span class="feature-icon">🎙️</span>#9834;</span>
                             <div class="feature-text">
                                 <h4>Speech Recognition</h4>
                                 <p>Practise speaking with real-time pronunciation feedback using the Web Speech API.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon">📊</span>
+                            <span class="feature-icon"><span class="feature-icon">📊</span>#9632;</span>
                             <div class="feature-text">
                                 <h4>Cross-Language Progress</h4>
                                 <p>Track your progress across multiple languages with comparative analytics.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon">🏆</span>
+                            <span class="feature-icon"><span class="feature-icon">🏆</span>#9733;</span>
                             <div class="feature-text">
                                 <h4>Leaderboards</h4>
                                 <p>Compete with other learners per language with weekly and all-time rankings.</p>

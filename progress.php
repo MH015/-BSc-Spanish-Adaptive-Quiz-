@@ -46,11 +46,11 @@ foreach ($allAttempts as $attempt) {
     $chartScores[] = $attempt['percentage'];
     
     if ($attempt['percentage'] >= 75) {
-        $chartColors[] = '#22c55e';
+        $chartColors[] = '#2e7d32';
     } elseif ($attempt['percentage'] >= 50) {
-        $chartColors[] = '#f59e0b';
+        $chartColors[] = '#d4a843';
     } else {
-        $chartColors[] = '#ef4444';
+        $chartColors[] = '#c62828';
     }
 }
 ?>
@@ -86,7 +86,7 @@ foreach ($allAttempts as $attempt) {
         <main class="main-content">
             <div class="container">
                 <div class="progress-header">
-                    <h1>📊 Your Learning Progress</h1>
+                    <h1>Your Learning Progress</h1>
                     <p>Track your Spanish learning journey</p>
                 </div>
                 
@@ -118,7 +118,9 @@ foreach ($allAttempts as $attempt) {
                 <!-- Score History Chart -->
                 <div class="card mb-6">
                     <h2>Score History</h2>
-                    <canvas id="scoreChart" height="300"></canvas>
+                    <div style="position: relative; height: 300px; width: 100%;">
+                        <canvas id="scoreChart"></canvas>
+                    </div>
                 </div>
                 
                 <!-- Category Performance -->
@@ -180,7 +182,7 @@ foreach ($allAttempts as $attempt) {
                 <?php else: ?>
                 <!-- No quizzes yet -->
                 <div class="card" style="text-align: center; padding: 3rem;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">-</div>
                     <h2>No Quizzes Yet</h2>
                     <p class="text-muted" style="margin-bottom: 1.5rem;">Complete your first quiz to start tracking your progress!</p>
                     <a href="dashboard.php" class="btn btn-primary">Go to Dashboard</a>

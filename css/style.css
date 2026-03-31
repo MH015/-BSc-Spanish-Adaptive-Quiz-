@@ -147,7 +147,6 @@
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -216,7 +215,7 @@ p {
     background: var(--primary-dark);
     padding: 0;
     border-bottom: 3px solid var(--accent-color);
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 100;
 }

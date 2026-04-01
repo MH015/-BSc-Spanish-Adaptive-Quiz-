@@ -116,10 +116,10 @@ unset($cat);
             margin-bottom: 0.5rem;
         }
         .stat-value {
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.75rem;
             font-weight: 700;
-            color: #111111;
+            color: #ffffff;
             line-height: 1;
         }
 

@@ -71,7 +71,7 @@ p{margin-bottom:var(--spacing-4);color:var(--text-secondary);line-height:1.65}
 .stat-card{background:var(--bg-card);border-radius:var(--radius-xl);padding:var(--spacing-5);text-align:center;border:1px solid var(--gray-200);border-top:3px solid var(--accent-color);transition:box-shadow var(--transition-fast)}
 .stat-card:hover{box-shadow:var(--shadow-md)}
 .stat-card.success{border-top-color:var(--success-color)}.stat-card.warning{border-top-color:var(--accent-color)}.stat-card.error{border-top-color:var(--error-color)}
-.stat-value{font-family:var(--font-family);font-size:var(--font-size-3xl);font-weight:700;color:var(--text-primary);line-height:1.2}
+.stat-value{font-family:var(--font-family-ui);font-size:var(--font-size-3xl);font-weight:700;color:#ffffff;line-height:1.2}
 .stat-label{font-size:var(--font-size-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:var(--spacing-1);font-weight:600}
 .category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--spacing-4);margin-top:var(--spacing-4)}
 .category-card{background:var(--bg-card);border-radius:var(--radius-xl);padding:var(--spacing-6);text-align:center;cursor:pointer;transition:all var(--transition-fast);text-decoration:none;color:inherit;border:2px solid var(--gray-200)}
@@ -102,7 +102,7 @@ p{margin-bottom:var(--spacing-4);color:var(--text-secondary);line-height:1.65}
 .results-container{max-width:800px;margin:0 auto}
 .results-card{background:var(--bg-card);border-radius:var(--radius-xl);padding:var(--spacing-10);text-align:center;box-shadow:var(--shadow-md);margin-bottom:var(--spacing-6);border:1px solid var(--gray-200);border-top:4px solid var(--accent-color)}
 .results-emoji{font-size:4rem;margin-bottom:var(--spacing-4)}
-.results-score{font-family:var(--font-family);font-size:var(--font-size-4xl);font-weight:700;color:var(--accent-color);margin-bottom:var(--spacing-2)}
+.results-score{font-family:var(--font-family-ui);font-size:var(--font-size-4xl);font-weight:700;color:var(--accent-color);margin-bottom:var(--spacing-2)}
 .results-message{font-size:var(--font-size-lg);color:var(--text-secondary)}
 .adaptive-feedback{border-radius:var(--radius-xl);padding:var(--spacing-6);margin-bottom:var(--spacing-6);border:2px solid}
 .adaptive-feedback.success,.adaptive-feedback.increase{background:var(--success-light);border-color:var(--success-color)}

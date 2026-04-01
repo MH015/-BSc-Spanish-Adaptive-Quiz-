@@ -132,7 +132,7 @@ $pronunciation_items = [
 
         /* Prototype Banner */
         .prototype-banner {
-            background: linear-gradient(135deg, var(--primary-color, #0d7377) 0%, var(--accent-color, #d4a843) 100%);
+            background: linear-gradient(135deg, var(--primary-color, #d4a843) 0%, var(--accent-color, #d4a843) 100%);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: var(--radius-lg, 12px);
@@ -175,8 +175,8 @@ $pronunciation_items = [
 
         .filter-btn:hover,
         .filter-btn.active {
-            border-color: var(--primary-color, var(--primary-color, #0d7377));
-            color: var(--primary-color, var(--primary-color, #0d7377));
+            border-color: var(--primary-color, var(--primary-color, #d4a843));
+            color: var(--primary-color, var(--primary-color, #d4a843));
             background: rgba(13, 115, 119, 0.08);
         }
 
@@ -196,7 +196,7 @@ $pronunciation_items = [
         }
 
         .pronunciation-card.playing {
-            border-color: var(--primary-color, var(--primary-color, #0d7377));
+            border-color: var(--primary-color, var(--primary-color, #d4a843));
             box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.15);
         }
 
@@ -223,7 +223,7 @@ $pronunciation_items = [
 
         .phonetic-text {
             font-size: 0.9rem;
-            color: var(--primary-color, var(--primary-color, #0d7377));
+            color: var(--primary-color, var(--primary-color, #d4a843));
             font-style: italic;
             font-family: 'Courier New', monospace;
             background: rgba(13, 115, 119, 0.06);
@@ -269,7 +269,7 @@ $pronunciation_items = [
         }
 
         .btn-listen {
-            background: linear-gradient(135deg, var(--primary-color, #0d7377), var(--accent-color, #d4a843));
+            background: linear-gradient(135deg, var(--primary-color, #d4a843), var(--accent-color, #d4a843));
             color: white;
         }
 
@@ -324,7 +324,7 @@ $pronunciation_items = [
         .wave-bar {
             width: 4px;
             height: 20px;
-            background: var(--primary-color, var(--primary-color, #0d7377));
+            background: var(--primary-color, var(--primary-color, #d4a843));
             border-radius: 2px;
             animation: waveform 0.8s ease-in-out infinite;
         }
@@ -426,7 +426,7 @@ $pronunciation_items = [
         .step-number {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary-color, #0d7377), var(--accent-color, #d4a843));
+            background: linear-gradient(135deg, var(--primary-color, #d4a843), var(--accent-color, #d4a843));
             color: white;
             border-radius: 50%;
             display: flex;
@@ -465,7 +465,7 @@ $pronunciation_items = [
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.1));
-            border-left: 5px solid var(--primary-color, #0d7377);
+            border-left: 5px solid var(--primary-color, #d4a843);
         }
 
         .prototype-detail-box h3 {
@@ -517,14 +517,14 @@ $pronunciation_items = [
         }
 
         .proto-arrow {
-            color: var(--primary-color, #0d7377);
+            color: var(--primary-color, #d4a843);
             font-weight: 700;
             flex-shrink: 0;
         }
 
         .proto-list-item code {
             background: rgba(13, 115, 119, 0.08);
-            color: var(--primary-color, #0d7377);
+            color: var(--primary-color, #d4a843);
             padding: 0.1rem 0.35rem;
             border-radius: 4px;
             font-size: 0.8rem;
@@ -560,7 +560,7 @@ $pronunciation_items = [
         .tech-badge strong {
             display: block;
             font-size: 0.82rem;
-            color: var(--primary-color, #0d7377);
+            color: var(--primary-color, #d4a843);
             margin-bottom: 0.2rem;
         }
 
@@ -592,7 +592,7 @@ $pronunciation_items = [
 
         .proto-limitations code {
             background: rgba(13, 115, 119, 0.08);
-            color: var(--primary-color, #0d7377);
+            color: var(--primary-color, #d4a843);
             padding: 0.1rem 0.35rem;
             border-radius: 4px;
             font-size: 0.8rem;

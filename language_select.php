@@ -165,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
 
         /* Prototype banner - informs users this is a future feature */
         .prototype-banner {
-            background: linear-gradient(135deg, var(--primary-color, #0d7377) 0%, var(--accent-color, #d4a843) 100%);
+            background: linear-gradient(135deg, var(--primary-color, #d4a843) 0%, var(--accent-color, #d4a843) 100%);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: var(--radius-lg, 12px);
@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
         .language-card.active:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg, 0 10px 25px rgba(0,0,0,0.15));
-            border-color: var(--primary-color, var(--primary-color, #0d7377));
+            border-color: var(--primary-color, var(--primary-color, #d4a843));
         }
 
         /* Coming soon cards - greyed out with overlay */
@@ -257,7 +257,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
         /* Language name in its native script */
         .language-native {
             font-size: 1rem;
-            color: var(--primary-color, var(--primary-color, #0d7377));
+            color: var(--primary-color, var(--primary-color, #d4a843));
             font-weight: 500;
             margin-bottom: 0.75rem;
         }
@@ -293,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
         /* Currently selected indicator */
         .current-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color, #0d7377), var(--accent-color, #d4a843));
+            background: linear-gradient(135deg, var(--primary-color, #d4a843), var(--accent-color, #d4a843));
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 999px;
@@ -357,7 +357,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.1));
-            border-left: 5px solid var(--primary-color, #0d7377);
+            border-left: 5px solid var(--primary-color, #d4a843);
         }
 
         .prototype-detail-box h3 {
@@ -409,14 +409,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['select_language'])) {
         }
 
         .proto-arrow {
-            color: var(--primary-color, #0d7377);
+            color: var(--primary-color, #d4a843);
             font-weight: 700;
             flex-shrink: 0;
         }
 
         .proto-list-item code {
             background: rgba(13, 115, 119, 0.08);
-            color: var(--primary-color, #0d7377);
+            color: var(--primary-color, #d4a843);
             padding: 0.1rem 0.35rem;
             border-radius: 4px;
             font-size: 0.8rem;
@@ -589,7 +589,7 @@ ALTER TABLE users
                             <form method="POST" action="language_select.php">
                                 <input type="hidden" name="select_language" value="1">
                                 <input type="hidden" name="language_code" value="<?php echo $lang['code']; ?>">
-                                <button type="submit" class="language-card active" style="width:100%; text-align:left; border:2px solid var(--primary-color, var(--primary-color, #0d7377));">
+                                <button type="submit" class="language-card active" style="width:100%; text-align:left; border:2px solid var(--primary-color, var(--primary-color, #d4a843));">
                                     <span class="language-flag"><?php echo $lang['flag']; ?></span>
                                     <div class="language-name"><?php echo htmlspecialchars($lang['name']); ?></div>
                                     <div class="language-native"><?php echo htmlspecialchars($lang['native_name']); ?></div>
@@ -622,28 +622,28 @@ ALTER TABLE users
                     <h3>Planned Language Learning Features</h3>
                     <div class="feature-list">
                         <div class="feature-item">
-                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">01</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #d4a843); font-weight: 700;">01</span>
                             <div class="feature-text">
                                 <h4>Audio Pronunciation</h4>
                                 <p>Hear native speaker audio for every question and answer to improve listening skills.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">02</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #d4a843); font-weight: 700;">02</span>
                             <div class="feature-text">
                                 <h4>Speech Recognition</h4>
                                 <p>Practise speaking with real-time pronunciation feedback using the Web Speech API.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">03</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #d4a843); font-weight: 700;">03</span>
                             <div class="feature-text">
                                 <h4>Cross-Language Progress</h4>
                                 <p>Track your progress across multiple languages with comparative analytics.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #0d7377); font-weight: 700;">04</span>
+                            <span class="feature-icon" style="font-size:1.2rem; color: var(--primary-color, #d4a843); font-weight: 700;">04</span>
                             <div class="feature-text">
                                 <h4>Leaderboards</h4>
                                 <p>Compete with other learners per language with weekly and all-time rankings.</p>

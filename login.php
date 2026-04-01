@@ -123,7 +123,7 @@ if (isset($_GET['success'])) { $success = htmlspecialchars($_GET['success']); }
 
         .brand-logo {
             color: #d4a843;
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
             color: #fff;
@@ -215,7 +215,7 @@ if (isset($_GET['success'])) { $success = htmlspecialchars($_GET['success']); }
         }
 
         .login-header h2 {
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 0.35rem;
@@ -426,6 +426,7 @@ if (isset($_GET['success'])) { $success = htmlspecialchars($_GET['success']); }
                                placeholder="Enter your password" required>
                     </div>
                     <button type="submit" class="btn-login">Sign In</button>
+                    <a href="forgot_password.php" style="display: block; text-align: center; margin-top: 1rem; color: #d4a843; font-size: 0.85rem; text-decoration: none;">Forgot Password?</a>
                 </form>
 
                 <!-- Register Form -->

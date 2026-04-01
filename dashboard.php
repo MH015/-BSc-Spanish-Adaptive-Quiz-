@@ -60,7 +60,7 @@ unset($cat);
         }
         .welcome-banner h1 {
             color: #fff;
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.75rem;
             margin-bottom: 0.35rem;
         }
@@ -130,7 +130,7 @@ unset($cat);
             margin-bottom: 1rem;
         }
         .section-header h2 {
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.25rem;
             color: #ffffff;
             margin: 0;
@@ -174,13 +174,13 @@ unset($cat);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.2rem;
             font-weight: 700;
             margin: 0 auto 1rem;
         }
         .category-card .cat-name {
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.05rem;
             font-weight: 600;
             color: #ffffff;
@@ -244,7 +244,7 @@ unset($cat);
             background: linear-gradient(90deg, #d4a843, #d4a843);
         }
         .future-card h3 {
-            font-family: Georgia, serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             font-size: 1.05rem;
             color: #ffffff;
             margin-bottom: 0.4rem;

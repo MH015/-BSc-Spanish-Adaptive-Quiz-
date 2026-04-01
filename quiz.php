@@ -188,12 +188,10 @@ function startNewQuiz($category, $difficulty, $limit) {
                                 <button type="submit" name="action" value="next" class="btn btn-primary">
                                     Next →
                                 </button>
-                            <?php endif; ?>
-                            
-                            <?php if ($answeredCount === $totalQuestions): ?>
+                            <?php else: ?>
                                 <button type="submit" name="action" value="submit" class="btn btn-primary"
-                                        onclick="return confirm('Submit your quiz? You have answered <?php echo $answeredCount; ?> of <?php echo $totalQuestions; ?> questions.');">
-                                    Submit Quiz ✓
+                                        onclick="return confirm('Submit your quiz?');">
+                                    Submit Quiz
                                 </button>
                             <?php endif; ?>
                         </div>

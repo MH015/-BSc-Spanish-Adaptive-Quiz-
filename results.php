@@ -88,7 +88,7 @@ if (!isset($_SESSION['results_saved'])) {
     
     // Save individual answers
     foreach ($questionResults as $result) {
-        $sql = "INSERT INTO user_answers (attempt_id, question_id, user_answer, is_correct) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO user_answers (attempt_id, question_id, selected_answer, is_correct) VALUES (?, ?, ?, ?)";
         db_execute($sql, [
             $attemptId,
             $result['question']['question_id'],

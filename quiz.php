@@ -14,10 +14,18 @@ require_login();
 
 $user = get_logged_in_user();
 
+// Include enhanced adaptive algorithm for per-category difficulty
+require_once 'includes/adaptive_algorithm.php';
+
 // Check if starting a new quiz
 if (isset($_GET['new']) || isset($_GET['category'])) {
     $category = isset($_GET['category']) ? $_GET['category'] : null;
-    $difficulty = $_SESSION['current_level'] ?? 'easy';
+    // Use per-category difficulty if a specific category is selected
+    if ($category) {
+        $difficulty = get_category_difficulty($user['user_id'], $category);
+    } else {
+        $difficulty = $_SESSION['current_level'] ?? 'easy';
+    }
     startNewQuiz($category, $difficulty, 10);
     header('Location: quiz.php');
     exit;

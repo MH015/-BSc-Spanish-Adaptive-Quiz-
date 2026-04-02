@@ -48,36 +48,14 @@ $minutes = floor($timeTaken / 60);
 $seconds = $timeTaken % 60;
 $timeDisplay = sprintf('%d:%02d', $minutes, $seconds);
 
-// Adaptive difficulty adjustment
+// Include the enhanced adaptive algorithm
+require_once 'includes/adaptive_algorithm.php';
+
+// Multi-factor adaptive difficulty adjustment
 $oldLevel = $quizDifficulty;
-if ($percentage >= 75) {
-    $newLevel = ($quizDifficulty === 'easy') ? 'medium' : (($quizDifficulty === 'medium') ? 'hard' : 'hard');
-    $feedbackType = 'success';
-    $feedbackTitle = '🎉 Level Up!';
-    $feedbackMessage = "Excellent work! Your difficulty has been increased from " . ucfirst($oldLevel) . " to " . ucfirst($newLevel) . ".";
-} elseif ($percentage >= 50) {
-    $newLevel = $quizDifficulty;
-    $feedbackType = 'maintain';
-    $feedbackTitle = '👍 Staying Steady';
-    $feedbackMessage = "Good effort! You'll continue at the " . ucfirst($newLevel) . " level to build confidence.";
-} else {
-    $newLevel = ($quizDifficulty === 'hard') ? 'medium' : (($quizDifficulty === 'medium') ? 'easy' : 'easy');
-    $feedbackType = 'decrease';
-    $feedbackTitle = '💪 Keep Practising!';
-    $feedbackMessage = "Don't worry! Your difficulty has been adjusted from " . ucfirst($oldLevel) . " to " . ucfirst($newLevel) . " to help you improve.";
-}
 
-$_SESSION['current_level'] = $newLevel;
-
-// Save to database (only once)
+// Save quiz attempt FIRST (so the algorithm can include this attempt in trend analysis)
 if (!isset($_SESSION['results_saved'])) {
-    // Update user level
-    db_execute(
-        "UPDATE users SET current_level = ? WHERE user_id = ?",
-        [$newLevel, $user['user_id']]
-    );
-    
-    // Save quiz attempt
     db_execute(
         "INSERT INTO quiz_attempts (user_id, category, difficulty_level, score, total_questions, percentage, attempt_date) 
          VALUES (?, ?, ?, ?, ?, ?, NOW())",
@@ -96,8 +74,44 @@ if (!isset($_SESSION['results_saved'])) {
             $result['is_correct'] ? 1 : 0
         ]);
     }
+
+    // Run the enhanced multi-factor adaptive algorithm
+    $adaptiveResult = calculate_adaptive_difficulty(
+        $user['user_id'],
+        $quizCategory,
+        $percentage,
+        $quizDifficulty
+    );
+
+    $newLevel = $adaptiveResult['new_level'];
+    $feedbackType = $adaptiveResult['feedback_type'];
+    $feedbackTitle = $adaptiveResult['feedback_title'];
+    $feedbackMessage = $adaptiveResult['feedback_message'];
+    $feedbackDetail = $adaptiveResult['feedback_detail'];
+    $adaptiveFactors = $adaptiveResult['factors'];
+    $compositeScore = $adaptiveResult['composite_score'];
+
+    // Update global user level
+    db_execute(
+        "UPDATE users SET current_level = ? WHERE user_id = ?",
+        [$newLevel, $user['user_id']]
+    );
+
+    $_SESSION['current_level'] = $newLevel;
     
+    // Store for display
+    $_SESSION['adaptive_result'] = $adaptiveResult;
     $_SESSION['results_saved'] = true;
+} else {
+    // Results already saved, retrieve from session
+    $adaptiveResult = $_SESSION['adaptive_result'] ?? null;
+    $newLevel = $_SESSION['current_level'] ?? $quizDifficulty;
+    $feedbackType = $adaptiveResult['feedback_type'] ?? 'maintain';
+    $feedbackTitle = $adaptiveResult['feedback_title'] ?? 'Results';
+    $feedbackMessage = $adaptiveResult['feedback_message'] ?? '';
+    $feedbackDetail = $adaptiveResult['feedback_detail'] ?? '';
+    $adaptiveFactors = $adaptiveResult['factors'] ?? [];
+    $compositeScore = $adaptiveResult['composite_score'] ?? 0;
 }
 ?>
 <!DOCTYPE html>
@@ -152,6 +166,39 @@ if (!isset($_SESSION['results_saved'])) {
                         <h3><?php echo $feedbackTitle; ?></h3>
                         <p><?php echo $feedbackMessage; ?></p>
                     </div>
+
+                    <?php if (!empty($adaptiveFactors)): ?>
+                    <div class="card mb-6">
+                        <h3 style="margin-bottom: 0.75rem;">Adaptive Analysis</h3>
+                        <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 1rem;"><?php echo $feedbackDetail ?? ''; ?></p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem;">
+                            <div style="background: var(--bg-color, #1a1a1a); border: 1px solid var(--gray-200, #333); border-radius: 6px; padding: 0.85rem; text-align: center;">
+                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.35rem;">Quiz Score</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: <?php echo ($adaptiveFactors['score'] ?? 0) >= 0 ? '#6abf6e' : '#ef6b6b'; ?>;"><?php echo ($adaptiveFactors['score'] ?? 0) >= 0 ? '+' : ''; ?><?php echo $adaptiveFactors['score'] ?? 0; ?></div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.2rem;">Weight: 50%</div>
+                            </div>
+                            <div style="background: var(--bg-color, #1a1a1a); border: 1px solid var(--gray-200, #333); border-radius: 6px; padding: 0.85rem; text-align: center;">
+                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.35rem;">Trend</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: <?php echo ($adaptiveFactors['trend'] ?? 0) >= 0 ? '#6abf6e' : '#ef6b6b'; ?>;"><?php echo ($adaptiveFactors['trend'] ?? 0) >= 0 ? '+' : ''; ?><?php echo $adaptiveFactors['trend'] ?? 0; ?></div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.2rem;">Weight: 25%</div>
+                            </div>
+                            <div style="background: var(--bg-color, #1a1a1a); border: 1px solid var(--gray-200, #333); border-radius: 6px; padding: 0.85rem; text-align: center;">
+                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.35rem;">Consistency</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: <?php echo ($adaptiveFactors['consistency'] ?? 0) >= 0 ? '#6abf6e' : '#ef6b6b'; ?>;"><?php echo ($adaptiveFactors['consistency'] ?? 0) >= 0 ? '+' : ''; ?><?php echo $adaptiveFactors['consistency'] ?? 0; ?></div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.2rem;">Weight: 15%</div>
+                            </div>
+                            <div style="background: var(--bg-color, #1a1a1a); border: 1px solid var(--gray-200, #333); border-radius: 6px; padding: 0.85rem; text-align: center;">
+                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.35rem;">Category</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: <?php echo ($adaptiveFactors['category'] ?? 0) >= 0 ? '#6abf6e' : '#ef6b6b'; ?>;"><?php echo ($adaptiveFactors['category'] ?? 0) >= 0 ? '+' : ''; ?><?php echo $adaptiveFactors['category'] ?? 0; ?></div>
+                                <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.2rem;">Weight: 10%</div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--gray-200, #333);">
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Composite Score: </span>
+                            <span style="font-size: 0.95rem; font-weight: 700; color: #d4a843;"><?php echo $compositeScore ?? 0; ?></span>
+                        </div>
+                    </div>
+                    <?php endif; ?>
                     
                     <!-- Question Review -->
                     <div class="card mb-6">

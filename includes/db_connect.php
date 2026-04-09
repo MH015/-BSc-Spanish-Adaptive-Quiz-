@@ -4,6 +4,21 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
+ * PURPOSE:
+ * Establishes a PDO connection to the MySQL database and provides
+ * reusable helper functions for all database operations throughout
+ * the application. Every other file depends on this module.
+ * HOW IT WORKS:
+ * 1. Defines connection constants (host, database name, user,
+ *    password, port) configured for the MAMP local environment.
+ * 2. Creates a PDO instance with ERRMODE_EXCEPTION enabled, so
+ *    any SQL error immediately throws a catchable PDOException
+ *    rather than failing silently.
+ * 3. Provides four helper functions:
+ *    - db_query($sql, $params)       → SELECT, returns all rows
+ *    - db_query_single($sql, $params)→ SELECT, returns first row
+ *    - db_execute($sql, $params)     → INSERT/UPDATE/DELETE
+ *    - db_last_insert_id()           → returns last auto-increment ID
  */
 
 define('DB_HOST', 'localhost');

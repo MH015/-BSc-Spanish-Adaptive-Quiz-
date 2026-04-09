@@ -4,6 +4,23 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
+ * PURPOSE:
+ * The main hub after login. Displays the user's learning statistics
+ * and provides category selection to start a new quiz. Shows an
+ * overview of progress and links to all other application features.
+ *
+ * HOW IT WORKS:
+ * 1. Calls require_login() to enforce authentication.
+ * 2. Queries quiz_attempts for aggregate statistics:
+ *    - Total quizzes completed (COUNT)
+ *    - Average score across all attempts (AVG)
+ *    - Current global difficulty level from users table
+ * 3. Displays statistics in cards with coloured top borders.
+ * 4. Lists available quiz categories (Greetings, Food & Drink,
+ *    Numbers, Common Phrases), each linking to quiz.php?category=X.
+ * 5. Shows per-category difficulty levels retrieved from the
+ *    category_difficulty table via get_category_difficulty().
+ * 6. Links to prototype features (Language Selection, Pronunciation).
  */
 
 require_once 'includes/auth.php';

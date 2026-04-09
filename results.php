@@ -6,7 +6,32 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
-
+ *  PURPOSE:
+ * Processes the completed quiz, calculates the score, runs the
+ * adaptive algorithm to adjust difficulty, saves all data to the
+ * database, and displays detailed feedback to the learner. This
+ * is where the adaptive algorithm is triggered.
+ * HOW IT WORKS:
+ * 1. Retrieves quiz questions and user answers from $_SESSION.
+ * 2. Grades each question by comparing selected_answer to
+ *    correct_answer, building a $questionResults array.
+ * 3. Calculates the percentage: ($correctCount / $totalQuestions) * 100
+ * 4. Saves the quiz attempt to the quiz_attempts table (user_id,
+ *    category, difficulty_level, score, percentage, attempt_date).
+ * 5. Saves each individual answer to the user_answers table
+ *    (attempt_id, question_id, selected_answer, is_correct).
+ * 6. Calls calculate_adaptive_difficulty() from adaptive_algorithm.php
+ *    passing user_id, category, percentage, and current difficulty.
+ * 7. Receives the algorithm's decision (increase/maintain/decrease),
+ *    the composite score, all four factor values, and feedback text.
+ * 8. Displays:
+ *    - Score and emoji feedback banner
+ *    - Adaptive Analysis card with the four factor breakdowns,
+ *      their weights, and the gold composite score
+ *    - Difficulty adjustment message (what changed and why)
+ *    - Question-by-question review (green = correct, red = incorrect
+ *      with the correct answer shown)
+ * 9. Clears quiz session data to prevent re-submission.
  */
 
 require_once 'includes/auth.php';

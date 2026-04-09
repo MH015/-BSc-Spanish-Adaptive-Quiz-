@@ -6,7 +6,11 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
-
+ * PURPOSE:
+ * Manages the entire quiz-taking experience: selects questions
+ * appropriate to the user's difficulty level, displays them one
+ * at a time, stores answers in the session, and handles navigation
+ * between questions and final submission.
  */
 
 require_once 'includes/auth.php';

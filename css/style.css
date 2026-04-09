@@ -2,6 +2,11 @@
  * QUIZNINJA - MAIN STYLESHEET
  * Author: Matthew Holness | Student ID: 22068679 | Module: 6COM2018
  * COLOUR SCHEME: Black & Gold
+ PURPOSE:
+ * Defines the visual design system for the entire application.
+ * Implements the black and gold colour scheme with consistent
+ * typography, spacing, and component styling across all pages.
+
  */
 :root {
     --primary-color: #d4a843; --primary-hover: #c49a38; --primary-light: rgba(212,168,67,0.1); --primary-dark: #b08930;

@@ -4,7 +4,14 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
- *
+ * 
+ * PURPOSE:
+ * The intellectual core of QuizNinja. Analyses four weighted factors
+ * of learner performance to determine whether quiz difficulty should
+ * increase, decrease, or remain the same for a specific category.
+ * Replaces the original single-threshold model with a nuanced,
+ * theory-grounded composite approach.
+ * 
  * Multi-factor adaptive mechanism incorporating:
  * 1. Current quiz score (primary factor)
  * 2. Per-category difficulty tracking

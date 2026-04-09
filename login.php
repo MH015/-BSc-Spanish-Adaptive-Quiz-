@@ -4,6 +4,19 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
+ * 
+ * PURPOSE:
+ * The application entry point. Provides a tabbed card interface
+ * for both logging in and registering a new account. Redirects
+ * already-authenticated users to the dashboard.
+ *
+ * HOW IT WORKS:
+ * 1. Checks if user is already logged in → redirects to dashboard.php
+ * 2. On POST with action='login': calls login_user() from auth.php,
+ *    displays error message or redirects to dashboard on success.
+ * 3. On POST with action='register': calls register_user() from
+ *    auth.php, displays success message or error feedback.
+ * 4. On GET: renders the login/register card with tabbed navigation.
  */
 
 session_start();

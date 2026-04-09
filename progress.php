@@ -6,6 +6,10 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
+ * PURPOSE:
+ * Provides a visual overview of the user's learning history using
+ * Chart.js. Allows learners to identify patterns, track improvement,
+ * and review past performance across categories and time.
 
  */
 

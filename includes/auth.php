@@ -4,6 +4,33 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
+ * PURPOSE:
+ * Centralises all user authentication logic: registration, login,
+ * logout, session management, and access control. Called by every
+ * protected page via require_login() to enforce authentication.
+ * 
+ * HOW IT WORKS:
+ * - register_user(): Validates input (username length, email format,
+ *   password minimum 8 chars), checks for duplicate emails, hashes
+ *   the password with bcrypt via password_hash(), and inserts a new
+ *   user record with 'easy' as the default difficulty level.
+ *
+ * - login_user(): Retrieves the user by email, verifies the password
+ *   against the stored bcrypt hash using password_verify(), then
+ *   creates a session. Calls session_regenerate_id(true) to prevent
+ *   session fixation attacks. Stores user_id, username, email,
+ *   current_level, and last_activity in $_SESSION.
+ *
+ * - logout_user(): Unsets all session variables, deletes the session
+ *   cookie, and destroys the session.
+ *
+ * - require_login(): Called at the top of every protected page.
+ *   Checks if the user is logged in and if the session has timed
+ *   out (30-minute inactivity limit). Redirects to login.php if
+ *   either check fails.
+ *
+ * - get_user_data(): Returns the full user record from the database
+ *   for the currently logged-in user.
  */
 
 if (session_status() === PHP_SESSION_NONE) {

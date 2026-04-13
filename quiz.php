@@ -11,6 +11,28 @@
  * appropriate to the user's difficulty level, displays them one
  * at a time, stores answers in the session, and handles navigation
  * between questions and final submission.
+ * 
+ * HOW THIS PAGE WORKS:
+ * 1. Requires the user to be logged in (calls require_login()).
+ * 2. Reads quiz parameters: category from the URL (?category=...)
+ *    and difficulty level from the user's current_level in the DB.
+ * 3. If no quiz is active in the session, starts a new one by
+ *    querying the questions table for 10 random questions matching
+ *    the selected category and difficulty level (ORDER BY RAND()).
+ * 4. Stores the questions and user answers in $_SESSION so the
+ *    quiz state persists across page loads.
+ * 5. Displays one question at a time with four multiple-choice
+ *    options. A progress bar shows completion (e.g. "Question 3/10").
+ * 6. JavaScript handles answer selection, navigation between
+ *    questions (next/previous), and visual feedback on click.
+ * 7. On the final question, a "Submit Quiz" button appears.
+ * 8. When submitted, the form POSTs all selected answers to
+ *    results.php for scoring and adaptive difficulty adjustment.
+ *
+ * KEY FUNCTIONS USED:
+ * - startNewQuiz()    → fetches questions from DB, stores in session
+ * - require_login()   → redirects to login.php if not authenticated
+ * - get_current_user() → retrieves logged-in user data from session/DB
  */
 
 require_once 'includes/auth.php';

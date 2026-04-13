@@ -4,6 +4,7 @@
  * QuizNinja - Adaptive Quiz Web Application
  * Author: Matthew Holness
  * Student ID: 22068679
+ * 
  * PURPOSE:
  * Handles user logout by calling logout_user() from auth.php,
  * which unsets all session variables, deletes the session cookie,

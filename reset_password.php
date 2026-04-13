@@ -8,6 +8,26 @@
  * Validates the reset token from the URL, checks it hasn't
  * expired or been used, then allows the user to set a new password.
  * The password is hashed with bcrypt before storing.
+ * 
+ * HOW THIS PAGE WORKS:
+ * 1. Reads the token from the URL query string (?token=...).
+ * 2. Queries the password_resets table using a JOIN with the
+ *    users table to retrieve token details and user info in
+ *    a single query (reduces database round trips).
+ * 3. Performs three-stage validation:
+ *    a) Does the token exist? If not → "Invalid reset link"
+ *    b) Has the token been used before? If yes → "Already used"
+ *    c) Has the token expired? Compares expires_at against
+ *       current time using strtotime() → "Link expired"
+ * 4. If all three checks pass, the new password form is shown.
+ * 5. On form submission:
+ *    - Validates password is at least 8 characters
+ *    - Confirms password and confirm_password match
+ *    - Hashes the new password using password_hash() with
+ *      PASSWORD_BCRYPT (industry-standard one-way hashing)
+ *    - Updates the users table with the new hash
+ *    - Sets the token's used flag to 1 so it cannot be reused
+ * 6. Redirects the user to login.php with a success message.
  */
 
 session_start();

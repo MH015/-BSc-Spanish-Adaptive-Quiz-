@@ -11,6 +11,7 @@
  * adaptive algorithm to adjust difficulty, saves all data to the
  * database, and displays detailed feedback to the learner. This
  * is where the adaptive algorithm is triggered.
+ * 
  * HOW IT WORKS:
  * 1. Retrieves quiz questions and user answers from $_SESSION.
  * 2. Grades each question by comparing selected_answer to

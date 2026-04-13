@@ -9,6 +9,29 @@
  * Generates a secure token stored in the password_resets table.
  * In production, the reset link would be emailed to the user.
  * For this prototype, the link is displayed on screen.
+ * 
+ * HOW THIS PAGE WORKS:
+ * 1. The user enters their email address into the form.
+ * 2. The email is validated using filter_var(FILTER_VALIDATE_EMAIL).
+ * 3. The system checks the users table for a matching email.
+ * 4. If found, a 64-character cryptographically secure token is
+ *    generated using bin2hex(random_bytes(32)).
+ * 5. Any previous unused tokens for this user are invalidated
+ *    (set used = 1) to prevent token accumulation.
+ * 6. A new row is inserted into the password_resets table with
+ *    the token, user_id, and a 1-hour expiry timestamp.
+ * 7. The reset link is displayed on screen (in production this
+ *    would be emailed via mail() or a service like SendGrid).
+ * 8. If the email is NOT found, the same generic success message
+ *    is shown — this prevents email enumeration attacks where
+ *    an attacker could discover which emails are registered.
+ *
+ * SECURITY MEASURES:
+ * - random_bytes(32) provides 256 bits of entropy (unguessable)
+ * - Identical response for valid/invalid emails (anti-enumeration)
+ * - Old tokens invalidated before new ones are created
+ * - Tokens expire after 1 hour to limit the attack window
+ * - All database queries use PDO prepared statements (anti-SQL injection)
  */
 
 session_start();
